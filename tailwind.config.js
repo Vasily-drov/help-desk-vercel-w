@@ -1,14 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./app/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: [
+  './app/**/*.{js,ts,jsx,tsx,mdx}',
+  './components/**/*.{tsx,ts}'],
   theme: {
     extend: {
       colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        background: 'white',
+        backgroundSecondary: "#f2f4e9",
+        foreground: '#171717',
+
         btn: {
-          background: 'hsl(var(--btn-background))',
-          'background-hover': 'hsl(var(--btn-background-hover))',
+          background: '#00531b',
+          'background-hover': '#027c2a',
         },
       },
     },
