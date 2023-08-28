@@ -22,6 +22,11 @@ export default function Ticket({
     setstatusChanged(true)
   }
 
+  const handleStatusSubmit =  async (formData: FormData) => {
+    updateStatus(formData)
+    setstatusChanged(false)
+  }
+
   useEffect(() => {
     setStatus(ticket.status)
   }, [ticket.status])
@@ -44,7 +49,7 @@ export default function Ticket({
         <ReplyForm
           reply={reply}
           email={ticket.email} />
-        <form className="mt-5" action={updateStatus}>
+        <form className="mt-5" action={handleStatusSubmit}>
           <label htmlFor="status" className="mt-4 mr-4">STATUS:</label>
           <input type="hidden" name="id" value={ticket.id} />
           <select name="status" id="status" value={status} onChange={e => handleStatusChange(e.target.value)}>

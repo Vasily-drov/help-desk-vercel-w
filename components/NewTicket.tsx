@@ -1,6 +1,7 @@
 
 import { createServerActionClient } from '@supabase/auth-helpers-nextjs'
 import { revalidatePath } from 'next/cache'
+import { redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
 
 export const dynamic = 'force-dynamic'
@@ -22,7 +23,7 @@ export default function NewTicket() {
       const supabase = createServerActionClient({ cookies })
       console.log('there')
       await supabase.from("tickets").insert({ name:name, email:email,description:description});
-      revalidatePath('/')
+      redirect('/complete')
     }
   }
   return (

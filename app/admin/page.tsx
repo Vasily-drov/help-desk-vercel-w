@@ -14,7 +14,7 @@ export default async function Admin() {
     'use server'
     const replyBody = formData.get('reply')
     const email = formData.get('email')
-  
+    console.log(`Norsdf`)
     if (replyBody && email) {
       // const supabase = createServerActionClient({ cookies })
       // await supabase.from("ticket").insert({ name:"NEW", email:"new@g.com",description:"NEWNEWNEW"});
