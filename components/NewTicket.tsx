@@ -13,9 +13,14 @@ export default function NewTicket() {
     const name = formData.get('name')
     const email = formData.get('email')
     const description = formData.get('description')
-
+    console.log('Here')
+    console.log(formData)
+    console.log(email)
+    console.log(description)
+    console.log(name)
     if (name && email && description) {
       const supabase = createServerActionClient({ cookies })
+      console.log('there')
       await supabase.from("tickets").insert({ name:name, email:email,description:description});
       revalidatePath('/')
     }
@@ -25,14 +30,14 @@ export default function NewTicket() {
       <label htmlFor="name" className="mr-[41%]">Name:</label>
       <label htmlFor="email">Email:</label>
       <div>
-        <input placeholder="Jane Doe" id="name" type="text" required
+        <input placeholder="Jane Doe" id="name" name="name" type="text" required
           className="bg-slate-200 focus:bg-white mr-2 mb-6 p-2 rounded-md"/>
-        <input placeholder="user@example.com" id="email" type="email" required
+        <input placeholder="user@example.com" id="email"  name="email" type="email" required
           className="bg-slate-200 focus:bg-white ml-2 mb-6 p-2 rounded-md" />
       </div>
       <div>
         <label htmlFor="description">Issue:</label>
-        <textarea placeholder="Describe your problem here" id="description" 
+        <textarea placeholder="Describe your problem here" id="description" name="description"
           className="w-full h-60 bg-slate-200 focus:bg-white rounded-md p-2"
           required />
       </div>
